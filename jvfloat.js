@@ -1,6 +1,6 @@
 /*
  * JVFloat.js
- * modified on: 15/05/2014
+ * modified on: 11/06/2014
  */
 
 (function($) {
@@ -38,10 +38,19 @@
       // to allow better positioning of the element for multiline text area inputs
       var placeholder = '';
       if( $(this).is('textarea') ) {
-        placeholder = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>').insertBefore($el);
+        placeholder = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>');
       } else {
-        placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>').insertBefore($el);
+        placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>');
       }
+
+      // place the label according to data-placeholder-placement (default: before)
+      var placement = $(this).data('placeholder-placement');
+      if( placement && placement === 'after' ) {
+        placeholder.insertAfter($el);
+      } else {
+        placeholder.insertBefore($el);
+      }
+
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
       $el.bind('keyup blur', setState);
