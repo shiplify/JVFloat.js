@@ -1,6 +1,6 @@
 /*
  * JVFloat.js
- * modified on: 11/06/2014
+ * modified on: 12/06/2014
  */
 
 (function($) {
@@ -11,8 +11,14 @@
     // Check input type - filter submit buttons.
     return this.filter('input:not([type=submit]), textarea').each(function() {
       function setState () {
-        // change span.placeHolder to span.placeHolder.active
-        placeholder.toggleClass('active', $el.val() !== '');
+        // change:
+        // - div.jvFloat to div.jvFloat.active
+        // - span.placeHolder to span.placeHolder.active
+        var active = $el.val() !== '';
+        $.each([
+          placeholder,
+          placeholder.parents('.jvFloat')
+        ], function(i, el) { el.toggleClass('active', active); });
       }
       function generateUIDNotMoreThan1million () {
         var id = '';

@@ -62,6 +62,7 @@ JVFloat uses CSS3 [Transform](https://developer.mozilla.org/en-US/docs/Web/CSS/t
 
 #Changelog
 
+* 11/06/2014 - Add active class to .jvFloat (in addition to .placeholder) so it's easy to style both label and input element.
 * 11/06/2014 - Add option to configure placement of placeholder in relation to the input element (data-placeholder-placement='after' puts label after input). Default remains label first for backward-compatibility.
 * 15/04/2014 - Release first stable version of JVFloat.js . add ability to redefine CSS on multiline `textarea`, thanks to @Jackobyte for the pull request. Also now JVFloat has a grunt-based build system.
 * 31/01/2014 - JVFloat now uses actual `<label>` elements to improve accessbility. thanks to @MrSnowflake for the pull request
