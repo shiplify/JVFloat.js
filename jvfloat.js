@@ -59,7 +59,7 @@
 
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
-      $el.bind('keyup blur', setState);
+      $el.bind('keyup blur jvFloat:update', setState);
     });
   };
 // Make Zeptojs & jQuery Compatible
